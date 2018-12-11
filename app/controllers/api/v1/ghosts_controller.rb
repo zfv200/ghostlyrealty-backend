@@ -1,7 +1,7 @@
 class Api::V1::GhostsController < ApplicationController
 
-  def show
-
+  def index
+    render json: Ghost.all
   end
 
 end
