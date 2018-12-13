@@ -4,4 +4,9 @@ class Api::V1::HousesController < ApplicationController
     render json: House.all
   end
 
+  # custom
+  def featured
+    render json: House.featured
+  end
+
 end
