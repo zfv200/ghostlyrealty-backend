@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ghost1 = Ghost.create(username: "Casper", age: 1000)
+ghost1 = Ghost.create(username: "Casper", age: 1000, image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaycrjjWPq991lmrgLoN8HP314ltT2xve_cgAZWnrREdtyuPBMdQ')
+ghost1.add_role :renter
+
+ghost2 = Ghost.create(username: 'King Hamlet', age: 500, image_url: 'https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg')
+ghost2.add_role :agent
 
 house1 = House.create(name: "Winchester Mystery House", image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true)
 house2 = House.create(name: "Pittock Mansion", image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true)
