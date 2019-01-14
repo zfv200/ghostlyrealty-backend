@@ -3,6 +3,7 @@ class CreateHouses < ActiveRecord::Migration[5.2]
     create_table :houses do |t|
       t.string :address
       t.integer :rooms
+      t.boolean :multiple_ghosts
       t.timestamps
     end
   end
