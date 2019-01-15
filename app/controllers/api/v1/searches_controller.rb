@@ -10,4 +10,12 @@ class Api::V1::SearchesController < ApplicationController
     render :json => {:agents=>agents, :houses=>houses}.to_json
   end
 
+  def search_properties
+    search_hash = params[:search]
+    search = Search.new
+    results = search.search_properties(search_hash)
+
+    render :json => results
+  end
+
 end
