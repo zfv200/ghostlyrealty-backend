@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_201950) do
+ActiveRecord::Schema.define(version: 2019_01_17_194917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_201950) do
     t.string "image_url"
     t.string "name"
     t.boolean "featured"
+    t.boolean "burial_ground"
   end
 
   create_table "roles", force: :cascade do |t|
