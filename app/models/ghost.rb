@@ -1,4 +1,6 @@
 class Ghost < ApplicationRecord
+  has_secure_password
+  validates :username, uniqueness: { case_sensitive: false }
   #can use rolify now to use those methods to assign roles at different points of creation/updating
   rolify
   has_many :haunts
