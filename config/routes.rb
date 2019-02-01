@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       post '/search_properties', to: 'searches#search_properties'
 
       #auth:
-      post '/login', to: 'ghosts#create'
+      post '/login', to: 'auth#create'
+      post '/register', to: 'ghosts#create'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
