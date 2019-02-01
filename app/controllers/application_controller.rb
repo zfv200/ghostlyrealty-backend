@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # before_action :authorized
+  before_action :authorized, only: [:encode_token, :auth_header, :decoded_token]
 
   def encode_token(payload)
     #put this in figaro
