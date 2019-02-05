@@ -1,4 +1,5 @@
-class Search
+class Search < ApplicationRecord
+  belongs_to :ghost
 
   def search_agents(query)
     Ghost.agents.select do |agent|
@@ -10,6 +11,12 @@ class Search
     House.all.select do |house|
       house.name.downcase.include?(query)
     end
+  end
+
+  def search_description_builder(query)
+    let description = "For Haunt: "
+    # TODO: write out the rest of this
+    byebug
   end
 
   # TODO: refactor this and all helper methods in #search_properties(search_hash)

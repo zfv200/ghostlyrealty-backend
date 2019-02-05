@@ -5,6 +5,7 @@ class Ghost < ApplicationRecord
   rolify
   has_many :haunts
   has_many :houses, through: :haunts
+  has_many :searches
 
   def self.agents
     self.all.select { |ghost|
