@@ -15,7 +15,7 @@ class Api::V1::GhostsController < ApplicationController
     @ghost = Ghost.create(ghost_params)
     if @ghost.valid?
       @token = encode_token(ghost_id: @ghost.id)
-      render json: { ghost: GhostSerializer.new(@ghost) }, status: :created
+      render json: { ghost: GhostSerializer.new(@ghost), jwt: @token }, status: :created
     else
       render json: { error: 'ya failed' }, status: :not_acceptable
     end
