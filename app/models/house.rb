@@ -1,6 +1,8 @@
 class House < ApplicationRecord
   has_many :haunts
   has_many :ghosts, through: :haunts
+  has_many :house_searches
+  has_many :searches, through: :house_searches
 
   def self.featured
     House.select do |house|

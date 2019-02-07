@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_203021) do
+ActiveRecord::Schema.define(version: 2019_02_07_165153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2019_01_31_203021) do
     t.index ["house_id"], name: "index_haunts_on_house_id"
   end
 
+  create_table "house_searches", force: :cascade do |t|
+    t.bigint "search_id"
+    t.bigint "house_id"
+    t.index ["house_id"], name: "index_house_searches_on_house_id"
+    t.index ["search_id"], name: "index_house_searches_on_search_id"
+  end
+
   create_table "houses", force: :cascade do |t|
     t.string "address"
     t.integer "rooms"
@@ -61,6 +68,16 @@ ActiveRecord::Schema.define(version: 2019_01_31_203021) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.bigint "ghost_id"
+    t.string "description"
+    t.boolean "typedSearch"
+    t.boolean "solo_haunt"
+    t.boolean "burial_ground"
+    t.boolean "complexSearch"
+    t.index ["ghost_id"], name: "index_searches_on_ghost_id"
   end
 
 end
