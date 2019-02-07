@@ -2,9 +2,6 @@ class Api::V1::SearchesController < ApplicationController
   # respond_to :json
 
   def search_site
-    if current_ghost
-      byebug
-    end
     query = params[:searchTerm]
     search = Search.new
     agents = search.search_agents(query)
@@ -34,6 +31,12 @@ class Api::V1::SearchesController < ApplicationController
       end
     end
 
+
+  end
+
+  def recent_search
+    search = Search.find_by(description: params[:description])
+    render :json => {:results => search.houses}
   end
 
   private

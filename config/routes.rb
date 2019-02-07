@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       post '/register', to: 'ghosts#create'
       get '/profile', to: 'ghosts#profile'
+      post '/recent_search', to: 'searches#recent_search'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
