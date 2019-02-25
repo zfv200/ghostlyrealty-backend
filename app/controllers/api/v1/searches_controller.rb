@@ -15,7 +15,7 @@ class Api::V1::SearchesController < ApplicationController
     @search_hash[:search][:description] = search_description_builder(@search_hash[:search])
     extant_search = Search.find_by(description: @search_hash[:search][:description])
 
-    if extant_search && current_ghost
+    if extant_search && current_ghost && extant_search.ghost_id == current_ghost.id
       return render :json => {:results=>extant_search.houses}
     else
       if current_ghost

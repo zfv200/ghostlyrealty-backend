@@ -4,7 +4,16 @@ class Api::V1::GhostsController < ApplicationController
   before_action :authorized, only: [:profile]
 
   def index
-    render json: Ghost.all
+    if request.headers[:type]
+      render json: Ghost.agents
+    else
+      render json: Ghost.all
+    end
+  end
+
+  def featured
+    featured_ghost = Ghost.all.find { |ghost| ghost.featured == true }
+    render json: featured_ghost
   end
 
   def profile
@@ -24,7 +33,7 @@ class Api::V1::GhostsController < ApplicationController
   private
 
   def ghost_params
-    params.require(:ghost).permit(:username, :password, :age, :image_url)
+    params.require(:ghost).permit(:username, :password, :age, :image, :motto)
   end
 
 end
