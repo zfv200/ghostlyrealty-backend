@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :haunts
       resources :ghosts
       get '/featured', to: 'houses#featured'
+      get '/featuredagent', to: 'ghosts#featured'
       post '/search', to: 'searches#search_site'
       post '/search_properties', to: 'searches#search_properties'
 
