@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ghost1 = Ghost.create(username: "Casper", age: 1000, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaycrjjWPq991lmrgLoN8HP314ltT2xve_cgAZWnrREdtyuPBMdQ')
+ghost1 = Ghost.create(username: "Casper", age: 1000, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaycrjjWPq991lmrgLoN8HP314ltT2xve_cgAZWnrREdtyuPBMdQ', password: "123")
 ghost1.add_role :renter
 
-ghost2 = Ghost.create(username: 'King Hamlet', age: 500, image: 'https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg', motto: "Lend thy serious hearing--for your next move!")
+ghost2 = Ghost.create(username: 'King Hamlet', age: 500, image: 'https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg', motto: "Lend thy serious hearing--for your next move!", password: "123", featured: true)
 ghost2.add_role :agent
 
 house1 = House.create(name: "Winchester Mystery House", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)

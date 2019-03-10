@@ -4,10 +4,13 @@ class Api::V1::SearchesController < ApplicationController
   def search_site
     query = params[:searchTerm]
     search = Search.new
+    if search.check_blank_search(params[:searchTerm])
+      return render :json => {:houses=> House.all}.to_json
+    end
     agents = search.search_agents(query)
     houses = search.search_houses(query)
     results = {:agents=>agents, :houses=>houses}
-    render :json => {:agents=>agents, :houses=>houses}.to_json
+    render :json => results.to_json
   end
 
   def search_properties
