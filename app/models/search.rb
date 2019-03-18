@@ -15,6 +15,10 @@ class Search < ApplicationRecord
     end
   end
 
+  def check_blank_search(term)
+    term == "" ? true : false
+  end
+
   # def search_description_builder(query)
   #   description = "For Haunt: A"
   #   attributes = query.select { |k, v| v==true &&  k!= "complexSearch"}
