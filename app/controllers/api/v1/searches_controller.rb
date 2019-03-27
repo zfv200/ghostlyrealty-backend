@@ -19,6 +19,8 @@ class Api::V1::SearchesController < ApplicationController
     extant_search = Search.find_by(description: @search_hash[:search][:description])
 
     if extant_search && current_ghost && extant_search.ghost_id == current_ghost.id
+      #update search results here for recent search
+      extant_search.houses = extant_search.search_properties(extant_search.attributes)
       return render :json => {:results=>extant_search.houses}
     else
       if current_ghost
@@ -38,6 +40,8 @@ class Api::V1::SearchesController < ApplicationController
   end
 
   def recent_search
+    #update results here even if it's a recent search
+    #because we want to preserve the potential for the data here
     search = Search.find_by(description: params[:description])
     render :json => {:results => search.houses}
   end
