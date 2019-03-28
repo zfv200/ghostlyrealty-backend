@@ -34,7 +34,7 @@ class Search < ApplicationRecord
   def search_properties(search_hash)
     results = House.all
     search_hash.each do |key, value|
-      if key != "complexSearch" && key != "description" && key != "ghost_id"
+      if key != "complexSearch" && key != "description" && key != "ghost_id" && key != "id" && key != "typedSearch"
         results = results.select do |house|
           house.matches_search?(key, value)
         end

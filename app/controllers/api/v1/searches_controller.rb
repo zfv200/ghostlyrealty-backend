@@ -16,29 +16,58 @@ class Api::V1::SearchesController < ApplicationController
   def search_properties
     @search_hash = params
     @search_hash[:search][:description] = search_description_builder(@search_hash[:search])
-    extant_search = Search.find_by(description: @search_hash[:search][:description])
 
-    if extant_search && current_ghost && extant_search.ghost_id == current_ghost.id
-      return render :json => {:results=>extant_search.houses}
-    else
-      if current_ghost
+    if current_ghost
+      extant_search = Search.find_by(description: @search_hash[:search][:description], ghost_id: current_ghost.id)
+      if extant_search
+        extant_search.houses = extant_search.search_properties(extant_search.attributes)
+        return render :json => {:results=>extant_search.houses}
+      else
         @search_hash[:search][:ghost_id] = current_ghost.id
         search = Search.create(search_params)
         results = search.search_properties(@search_hash[:search])
         search.houses = results
         return render :json => {:results=>search.houses, :search=>search}
-      else
-        search = Search.new
-        results = search.search_properties(@search_hash[:search])
-        render :json => {:results=>results, :search=>search}
       end
+      #if there's a current_ghost, check for extant_search for them
+      #if it exists, update it and return results
+      #if it doesn't, create it and return results, then check frontend
+    else
+      search = Search.new
+      results = search.search_properties(@search_hash[:search])
+      render :json => {:results=>results, :search=>search}
+      #otherwise they don't need to have a search saved, they just get the results
     end
+    #
+    # extant_search = Search.find_by(description: @search_hash[:search][:description])
+    # byebug
+    # if extant_search #&& current_ghost && extant_search.ghost_id == current_ghost.id
+    #   #update search results here for recent search
+    #   extant_search.houses = extant_search.search_properties(extant_search.attributes)
+    #   return render :json => {:results=>extant_search.houses}
+    # else
+    #   if current_ghost
+    #     byebug
+    #     @search_hash[:search][:ghost_id] = current_ghost.id
+    #     search = Search.create(search_params)
+    #     results = search.search_properties(@search_hash[:search])
+    #     search.houses = results
+    #     return render :json => {:results=>search.houses, :search=>search}
+    #   else
+    #     search = Search.new
+    #     results = search.search_properties(@search_hash[:search])
+    #     render :json => {:results=>results, :search=>search}
+    #   end
+    # end
 
 
   end
 
   def recent_search
+    #update results here even if it's a recent search
+    #because we want to preserve the potential for the data here
     search = Search.find_by(description: params[:description])
+    search.houses = search.search_properties(search.attributes)
     render :json => {:results => search.houses}
   end
 
