@@ -6,6 +6,7 @@ class Ghost < ApplicationRecord
   has_many :haunts
   has_many :houses, through: :haunts
   has_many :searches
+  has_many :properties, foreign_key: "medium_id", class_name: "House"
 
   def self.agents
     self.all.select { |ghost|

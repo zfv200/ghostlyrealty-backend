@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_193614) do
+ActiveRecord::Schema.define(version: 2019_04_08_203852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_193614) do
     t.string "name"
     t.boolean "featured"
     t.boolean "burial_ground"
+    t.bigint "medium_id"
+    t.index ["medium_id"], name: "index_houses_on_medium_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -82,4 +84,5 @@ ActiveRecord::Schema.define(version: 2019_02_25_193614) do
     t.index ["ghost_id"], name: "index_searches_on_ghost_id"
   end
 
+  add_foreign_key "houses", "ghosts", column: "medium_id"
 end

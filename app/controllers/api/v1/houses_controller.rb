@@ -12,6 +12,7 @@ class Api::V1::HousesController < ApplicationController
   def create
     return render json: {error: "login as agent please!"} if !current_ghost || !current_ghost.roles.any? do |role| role.name == "agent" end
     @house = House.new(house_params)
+    @house.medium = current_ghost
     response = nil
     if @house.save
       response = @house
@@ -24,7 +25,7 @@ class Api::V1::HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground)
+    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground, :medium_id)
   end
 
 end

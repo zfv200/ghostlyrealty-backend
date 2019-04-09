@@ -15,9 +15,12 @@ ghost2.add_role :agent
 ghost3 = Ghost.create(username: 'Zelda', age: 72, image: 'http://3.bp.blogspot.com/_m_yEp4yvWQY/S2GEFuMNbKI/AAAAAAAAU_8/_qdVYDBSKfA/s320/0.jpg', motto: 'This house is clean!', password: "123", featured: true)
 ghost3.add_role :agent
 
-house1 = House.create(name: "Winchester Mystery House", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)
-house2 = House.create(name: "Pittock Mansion", solo_haunt: true, image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true, burial_ground: false)
-house3 = House.create(name: "The Stanley Hotel", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/5bbef1be95086b24895894f5/master/w_820,c_limit/Stanley-Hotel-FYC359.jpg", featured: true, burial_ground: false)
-house4 = House.create(name: "R.M.S. Queen Mary", solo_haunt: false, image_url: "https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/5407/SITours/long-beach-shore-excursion-the-queen-mary-in-long-beach-151048.jpg", featured: true, burial_ground: false)
-house5 = House.create(name: "The Bowery Hotel", solo_haunt: true, image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bowery_Hotel_full.jpg/1024px-Bowery_Hotel_full.jpg", featured: true, burial_ground: false)
-house6 = House.create(name: "The Old Johnson House", solo_haunt: true, image_url: "https://amp.businessinsider.com/images/562fbe249dd7cc1b008c528d-750-498.jpg", burial_ground: true)
+ghost4 = Ghost.create(username: 'Ms. Cleo', age: 53, image: 'https://www.movieforums.com/community/attachment.php?attachmentid=26379&d=1469582112', motto: "Cleo can see your life--happy in a new haunt!", password: "123", featured: false)
+
+house1 = House.create(medium: ghost2, name: "Winchester Mystery House", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)
+house2 = House.create(medium: ghost3, name: "Pittock Mansion", solo_haunt: true, image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true, burial_ground: false)
+house3 = House.create(medium: ghost4, name: "The Stanley Hotel", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/5bbef1be95086b24895894f5/master/w_820,c_limit/Stanley-Hotel-FYC359.jpg", featured: true, burial_ground: false)
+house4 = House.create(medium: ghost2, name: "R.M.S. Queen Mary", solo_haunt: false, image_url: "https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/5407/SITours/long-beach-shore-excursion-the-queen-mary-in-long-beach-151048.jpg", featured: true, burial_ground: false)
+house5 = House.create(medium: ghost3, name: "The Bowery Hotel", solo_haunt: true, image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bowery_Hotel_full.jpg/1024px-Bowery_Hotel_full.jpg", featured: true, burial_ground: false)
+house6 = House.create(medium: ghost4, name: "The Old Johnson House", solo_haunt: true, image_url: "https://amp.businessinsider.com/images/562fbe249dd7cc1b008c528d-750-498.jpg", burial_ground: true)
+house7 = House.create(medium: ghost2, name: "The Blair Witch House", solo_haunt: true, image_url: "https://farm4.staticflickr.com/3312/3301227631_f19845c422_b.jpg", address: "Maryland Woods", burial_ground: true, featured: true)
