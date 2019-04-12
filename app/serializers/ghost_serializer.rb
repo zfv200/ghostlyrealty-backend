@@ -3,4 +3,5 @@ class GhostSerializer < ActiveModel::Serializer
   has_many :haunts
   has_many :houses, through: :haunts
   has_many :searches
+  has_many :properties
 end

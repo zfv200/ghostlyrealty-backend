@@ -6,7 +6,7 @@ class Api::V1::HousesController < ApplicationController
 
   # custom
   def featured
-    render json: House.featured
+    render json: House.featured, serializer: nil
   end
 
   def create
@@ -20,6 +20,15 @@ class Api::V1::HousesController < ApplicationController
       response = {error: "house saving failed!!!"}
     end
     render json: response
+  end
+
+  def update
+    @house = House.find(params[:id])
+    if @house.update(house_params)
+      render json: @house
+    else
+      render json: {error: "house failed to update!"}
+    end
   end
 
   private
