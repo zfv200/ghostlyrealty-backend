@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :houses, only: [:create, :update]
-      resources :haunts
       resources :ghosts, only: [:index, :show]
       get '/featured', to: 'houses#featured'
       get '/featuredagent', to: 'ghosts#featured'
       post '/search', to: 'searches#search_site'
       post '/search_properties', to: 'searches#search_properties'
-
+      post '/haunts', to: 'haunts#create_or_destroy'
       #auth:
       post '/login', to: 'auth#create'
       post '/register', to: 'ghosts#create'
