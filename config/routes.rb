@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :houses, only: [:create, :update]
+      resources :houses, only: [:create, :update, :show]
       resources :ghosts, only: [:index, :show]
       get '/featured', to: 'houses#featured'
       get '/featuredagent', to: 'ghosts#featured'

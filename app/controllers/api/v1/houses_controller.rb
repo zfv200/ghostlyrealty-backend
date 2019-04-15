@@ -4,6 +4,12 @@ class Api::V1::HousesController < ApplicationController
     render json: House.all
   end
 
+  def show
+    @house = House.find(params[:id])
+    medium = @house.medium
+    render json: {house: @house, medium: medium}
+  end
+
   # custom
   def featured
     render json: House.featured, serializer: nil
