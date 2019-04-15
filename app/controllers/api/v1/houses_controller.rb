@@ -24,10 +24,26 @@ class Api::V1::HousesController < ApplicationController
 
   def update
     @house = House.find(params[:id])
-    if @house.update(house_params)
+    status = feature_charge_status(@house)
+    if status == "success"
+      @house.update(house_params)
       render json: @house
     else
-      render json: {error: "house failed to update!"}
+      render json: {error: "no more credits!"}
+    end
+  end
+
+  def feature_charge_status(house)
+    if !!params["featured"]
+      medium = house.medium
+      if medium.credits == 0
+        "fail"
+      else
+        medium.update(credits: medium.credits - 1)
+        "success"
+      end
+    else
+      "success"
     end
   end
 
