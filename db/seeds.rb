@@ -16,6 +16,9 @@ ghost3 = Ghost.create(username: 'Zelda', age: 72, image: 'http://3.bp.blogspot.c
 ghost3.add_role :agent
 
 ghost4 = Ghost.create(username: 'Ms. Cleo', age: 53, image: 'https://www.movieforums.com/community/attachment.php?attachmentid=26379&d=1469582112', motto: "Cleo can see your life--happy in a new haunt!", password: "123", featured: false)
+ghost4.add_role :agent
+
+ghost5 = Ghost.create(username: 'Venkman', age: 35, image: 'https://www.theraffon.net/~spookcentral/journal/venkmanjumpsuit03.jpg', motto: "You’re not gonna lose the house, everybody has three mortgages nowadays.", password: "123", featured: false)
 
 house1 = House.create(medium: ghost2, name: "Winchester Mystery House", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)
 house2 = House.create(medium: ghost3, name: "Pittock Mansion", solo_haunt: true, image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true, burial_ground: false)
@@ -25,3 +28,5 @@ house5 = House.create(medium: ghost3, name: "The Bowery Hotel", solo_haunt: true
 house6 = House.create(medium: ghost4, name: "The Old Johnson House", solo_haunt: true, image_url: "https://amp.businessinsider.com/images/562fbe249dd7cc1b008c528d-750-498.jpg", burial_ground: true)
 house7 = House.create(medium: ghost2, name: "The Blair Witch House", solo_haunt: true, image_url: "https://farm4.staticflickr.com/3312/3301227631_f19845c422_b.jpg", address: "Maryland Woods", burial_ground: true, featured: true)
 house8 = House.create(medium: ghost3, name: "LaLaurie Mansion", solo_haunt: false, burial_ground: true, image_url: 'https://www.tripsavvy.com/thmb/OaNGHt-7HtRagQrSF25ozF4ABOY=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/The_LaLaurie_Mansion-592ac0715f9b585950396d65.jpg', featured: false)
+house9 = House.create(medium: ghost4, name: 'A Quaint Country Manor', solo_haunt: true, burial_ground: false, image_url: 'https://www.onecountry.com/wp-content/uploads/2017/12/origin-771.png', featured: true)
+house10 = House.create(medium: ghost5, name: "Belvedere Castle", solo_haunt: false, burial_ground: true, image_url: 'https://www.centralpark.com/downloads/2056/download/belvedere-castle.jpe?cb=771cc09df21a8781d72b999f86b8c799&w=640', featured: true)

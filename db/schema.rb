@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_203852) do
+ActiveRecord::Schema.define(version: 2019_04_15_181318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_203852) do
     t.string "password_digest"
     t.string "motto"
     t.boolean "featured"
+    t.integer "credits"
   end
 
   create_table "ghosts_roles", id: false, force: :cascade do |t|

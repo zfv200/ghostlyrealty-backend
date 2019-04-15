@@ -21,9 +21,9 @@ class Api::V1::GhostsController < ApplicationController
   end
 
   def create
-    @ghost = Ghost.create(ghost_params)
+    @ghost = Ghost.new(ghost_params)
     @ghost.add_role(:agent) if params[:medium]
-    if @ghost.valid?
+    if @ghost.save
       @token = encode_token(ghost_id: @ghost.id)
       render json: { ghost: GhostSerializer.new(@ghost), jwt: @token }, status: :created
     else
@@ -34,7 +34,7 @@ class Api::V1::GhostsController < ApplicationController
   private
 
   def ghost_params
-    params.require(:ghost).permit(:username, :password, :age, :image, :motto)
+    params.require(:ghost).permit(:username, :password, :age, :image, :motto, :credits)
   end
 
 end

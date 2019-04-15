@@ -4,6 +4,12 @@ class Api::V1::HousesController < ApplicationController
     render json: House.all
   end
 
+  def show
+    @house = House.find(params[:id])
+    medium = @house.medium
+    render json: {house: @house, medium: medium}
+  end
+
   # custom
   def featured
     render json: House.featured, serializer: nil
@@ -24,10 +30,26 @@ class Api::V1::HousesController < ApplicationController
 
   def update
     @house = House.find(params[:id])
-    if @house.update(house_params)
+    status = feature_charge_status(@house)
+    if status == "success"
+      @house.update(house_params)
       render json: @house
     else
-      render json: {error: "house failed to update!"}
+      render json: {error: "no more credits!"}
+    end
+  end
+
+  def feature_charge_status(house)
+    if !!params["featured"]
+      medium = house.medium
+      if medium.credits == 0
+        "fail"
+      else
+        medium.update(credits: medium.credits - 1)
+        "success"
+      end
+    else
+      "success"
     end
   end
 
