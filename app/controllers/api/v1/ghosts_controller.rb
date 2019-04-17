@@ -22,6 +22,22 @@ class Api::V1::GhostsController < ApplicationController
     render json: featured_ghost
   end
 
+  def feature_medium
+    featured_ghost = Ghost.all.find { |ghost| ghost.featured == true }
+    new_featured = Ghost.find(params[:id])
+    featured_ghost.update(featured: false)
+    current_credits = new_featured.credits
+    new_credits = change_credits(current_credits, -10)
+    new_featured.update(featured: true)
+    new_featured.update(credits: new_credits)
+    @ghost = Ghost.find(params[:id])
+    render json: @ghost
+  end
+
+  def change_credits(original, new_amt)
+    original + new_amt
+  end
+
   def profile
     render json: { ghost: GhostSerializer.new(current_ghost) }
   end
@@ -35,6 +51,12 @@ class Api::V1::GhostsController < ApplicationController
     else
       render json: { error: 'ya failed' }, status: :not_acceptable
     end
+  end
+
+  def update
+    @medium = Ghost.find(params[:id])
+    @medium.update(ghost_params)
+    render json: @medium
   end
 
   private
