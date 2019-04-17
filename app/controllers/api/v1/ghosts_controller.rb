@@ -11,6 +11,12 @@ class Api::V1::GhostsController < ApplicationController
     end
   end
 
+  def show
+    @medium = Ghost.find(params[:id])
+    @properties = @medium.properties
+    render json: { medium: @medium, properties: @properties }
+  end
+
   def featured
     featured_ghost = Ghost.all.find { |ghost| ghost.featured == true }
     render json: featured_ghost

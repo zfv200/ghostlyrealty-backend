@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+House.destroy_all
+Ghost.destroy_all
 
 ghost1 = Ghost.create(username: "Casper", age: 1000, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaycrjjWPq991lmrgLoN8HP314ltT2xve_cgAZWnrREdtyuPBMdQ', password: "123")
 ghost1.add_role :renter
@@ -19,6 +21,8 @@ ghost4 = Ghost.create(username: 'Ms. Cleo', age: 53, image: 'https://www.moviefo
 ghost4.add_role :agent
 
 ghost5 = Ghost.create(username: 'Venkman', age: 35, image: 'https://www.theraffon.net/~spookcentral/journal/venkmanjumpsuit03.jpg', motto: "You’re not gonna lose the house, everybody has three mortgages nowadays.", password: "123", featured: false)
+ghost5.add_role :agent
+
 
 house1 = House.create(medium: ghost2, name: "Winchester Mystery House", solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)
 house2 = House.create(medium: ghost3, name: "Pittock Mansion", solo_haunt: true, image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true, burial_ground: false)
