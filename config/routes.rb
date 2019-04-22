@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :houses, only: [:create, :update, :show]
-      resources :ghosts, only: [:index, :show]
+      post '/feature_medium', to: 'ghosts#feature_medium'
+      resources :ghosts, only: [:index, :show, :update]
       get '/featured', to: 'houses#featured'
       get '/featuredagent', to: 'ghosts#featured'
       post '/search', to: 'searches#search_site'
