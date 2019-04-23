@@ -24,13 +24,108 @@ ghost5 = Ghost.create(username: 'Venkman', age: 35, image: 'https://www.theraffo
 ghost5.add_role :agent
 
 
-house1 = House.create(medium: ghost2, name: "Winchester Mystery House", new_family: true, solo_haunt: false, image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg", featured: true, burial_ground: false)
-house2 = House.create(medium: ghost3, name: "Pittock Mansion", new_family: true, solo_haunt: true, image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg", featured: true, burial_ground: false)
-house3 = House.create(medium: ghost4, name: "The Stanley Hotel", new_family: false, solo_haunt: false, image_url: "https://media.cntraveler.com/photos/5bbef1be95086b24895894f5/master/w_820,c_limit/Stanley-Hotel-FYC359.jpg", featured: true, burial_ground: false)
-house4 = House.create(medium: ghost2, name: "R.M.S. Queen Mary", new_family: false, solo_haunt: false, image_url: "https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/5407/SITours/long-beach-shore-excursion-the-queen-mary-in-long-beach-151048.jpg", featured: true, burial_ground: false)
-house5 = House.create(medium: ghost3, name: "The Bowery Hotel", new_family: false, solo_haunt: true, image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bowery_Hotel_full.jpg/1024px-Bowery_Hotel_full.jpg", featured: true, burial_ground: false)
-house6 = House.create(medium: ghost4, name: "The Old Johnson House", new_family: true, solo_haunt: true, image_url: "https://amp.businessinsider.com/images/562fbe249dd7cc1b008c528d-750-498.jpg", burial_ground: true)
-house7 = House.create(medium: ghost2, name: "The Blair Witch House", new_family: false, solo_haunt: true, image_url: "https://farm4.staticflickr.com/3312/3301227631_f19845c422_b.jpg", address: "Maryland Woods", burial_ground: true, featured: true)
-house8 = House.create(medium: ghost3, name: "LaLaurie Mansion", new_family: true, solo_haunt: false, burial_ground: true, image_url: 'https://www.tripsavvy.com/thmb/OaNGHt-7HtRagQrSF25ozF4ABOY=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/The_LaLaurie_Mansion-592ac0715f9b585950396d65.jpg', featured: false)
-house9 = House.create(medium: ghost4, name: 'A Quaint Country Manor', new_family: true, solo_haunt: true, burial_ground: false, image_url: 'https://www.onecountry.com/wp-content/uploads/2017/12/origin-771.png', featured: true)
-house10 = House.create(medium: ghost5, name: "Belvedere Castle", new_family: false, solo_haunt: false, burial_ground: true, image_url: 'https://www.centralpark.com/downloads/2056/download/belvedere-castle.jpe?cb=771cc09df21a8781d72b999f86b8c799&w=640', featured: true)
+house1 = House.create(
+  medium: ghost2,
+  name: "Winchester Mystery House",
+  new_family: true,
+  solo_haunt: false,
+  burial_ground: false,
+  image_url: "https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg",
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house2 = House.create(
+  medium: ghost3,
+  name: "Pittock Mansion",
+  new_family: true,
+  solo_haunt: true,
+  burial_ground: false,
+  image_url: "https://media.cntraveler.com/photos/5bbef1ca2383b345456aaf3f/master/w_820,c_limit/Pittock-Mansion-GettyImages-636654304.jpg",
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house3 = House.create(
+  medium: ghost4,
+  name: "The Stanley Hotel",
+  new_family: false,
+  solo_haunt: false,
+  burial_ground: true,
+  image_url: "https://media.cntraveler.com/photos/5bbef1be95086b24895894f5/master/w_820,c_limit/Stanley-Hotel-FYC359.jpg",
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house4 = House.create(medium: ghost2,
+  name: "R.M.S. Queen Mary",
+  new_family: false,
+  solo_haunt: false,
+  burial_ground: false,
+  image_url: "https://cache-graphicslib.viator.com/graphicslib/thumbs674x446/5407/SITours/long-beach-shore-excursion-the-queen-mary-in-long-beach-151048.jpg",
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house5 = House.create(medium: ghost3,
+  name: "The Bowery Hotel",
+  new_family: false,
+  solo_haunt: true,
+  burial_ground: false,
+  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bowery_Hotel_full.jpg/1024px-Bowery_Hotel_full.jpg",
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house6 = House.create(
+  medium: ghost4,
+  name: "The Old Johnson House",
+  new_family: true,
+  solo_haunt: true,
+  burial_ground: false,
+  image_url: "https://amp.businessinsider.com/images/562fbe249dd7cc1b008c528d-750-498.jpg",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house7 = House.create(
+  medium: ghost2,
+  name: "The Blair Witch House",
+  new_family: false,
+  solo_haunt: true,
+  image_url: "https://farm4.staticflickr.com/3312/3301227631_f19845c422_b.jpg",
+  address: "Maryland Woods",
+  burial_ground: true,
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+house8 = House.create(
+  medium: ghost3,
+  name: "LaLaurie Mansion",
+  new_family: true,
+  solo_haunt: false,
+  burial_ground: true,
+  image_url: 'https://www.tripsavvy.com/thmb/OaNGHt-7HtRagQrSF25ozF4ABOY=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/The_LaLaurie_Mansion-592ac0715f9b585950396d65.jpg',
+  featured: false,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+house9 = House.create(
+  medium: ghost4,
+  name: 'A Quaint Country Manor',
+  new_family: true,
+  solo_haunt: true,
+  burial_ground: false,
+  image_url: 'https://www.onecountry.com/wp-content/uploads/2017/12/origin-771.png',
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
+
+house10 = House.create(
+  medium: ghost5,
+  name: "Belvedere Castle",
+  new_family: false,
+  solo_haunt: false,
+  burial_ground: true,
+  image_url: 'https://www.centralpark.com/downloads/2056/download/belvedere-castle.jpe?cb=771cc09df21a8781d72b999f86b8c799&w=640',
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
