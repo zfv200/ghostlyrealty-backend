@@ -7,7 +7,7 @@ class Api::V1::HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
     medium = @house.medium
-    render json: {house: @house, medium: medium}
+    render json: {house: HouseSerializer.new(@house), medium: medium}
   end
 
   # custom
@@ -40,7 +40,7 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def feature_charge_status(house)
-    if !!params["featured"]
+    if !!params["featured"] && house.featured == false
       medium = house.medium
       if medium.credits == 0
         "fail"
@@ -56,7 +56,7 @@ class Api::V1::HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground, :medium_id)
+    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground, :medium_id, :description, :new_family, :id)
   end
 
 end

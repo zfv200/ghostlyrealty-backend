@@ -129,3 +129,14 @@ house10 = House.create(
   featured: true,
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
 )
+
+house11 = House.create(
+  medium: ghost4,
+  name: "The Amityville Horror House",
+  new_family: true,
+  solo_haunt: true,
+  burial_ground: true,
+  image_url: 'https://ei.marketwatch.com/Multimedia/2016/06/29/Photos/ZH/MW-EQ389_amityv_20160629095319_ZH.jpg?uuid=d64cff2a-3e00-11e6-89f4-0015c588dfa6',
+  featured: true,
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique hendrerit libero ut hendrerit. Etiam pulvinar, tellus et suscipit aliquam, massa ligula egestas arcu, vel placerat tellus neque sed lorem. Sed laoreet metus quam, sit amet porta orci facilisis eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed mattis augue quis turpis efficitur, id egestas elit ultricies. Nullam libero libero, faucibus sit amet turpis vestibulum, blandit feugiat ligula. Praesent varius risus eu faucibus pellentesque. Nullam a iaculis est. Quisque a ante ipsum. Mauris mollis diam sit amet augue hendrerit, in egestas nunc volutpat. Quisque dictum convallis mauris, quis tempus nibh ullamcorper non. Aliquam sollicitudin justo non arcu pulvinar rhoncus."
+)
