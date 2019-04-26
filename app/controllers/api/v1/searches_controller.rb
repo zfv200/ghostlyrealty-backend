@@ -38,29 +38,6 @@ class Api::V1::SearchesController < ApplicationController
       render :json => {:results=>results, :search=>search}
       #otherwise they don't need to have a search saved, they just get the results
     end
-    #
-    # extant_search = Search.find_by(description: @search_hash[:search][:description])
-    # byebug
-    # if extant_search #&& current_ghost && extant_search.ghost_id == current_ghost.id
-    #   #update search results here for recent search
-    #   extant_search.houses = extant_search.search_properties(extant_search.attributes)
-    #   return render :json => {:results=>extant_search.houses}
-    # else
-    #   if current_ghost
-    #     byebug
-    #     @search_hash[:search][:ghost_id] = current_ghost.id
-    #     search = Search.create(search_params)
-    #     results = search.search_properties(@search_hash[:search])
-    #     search.houses = results
-    #     return render :json => {:results=>search.houses, :search=>search}
-    #   else
-    #     search = Search.new
-    #     results = search.search_properties(@search_hash[:search])
-    #     render :json => {:results=>results, :search=>search}
-    #   end
-    # end
-
-
   end
 
   def recent_search
