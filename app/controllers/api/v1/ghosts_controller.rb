@@ -62,7 +62,7 @@ class Api::V1::GhostsController < ApplicationController
   private
 
   def ghost_params
-    params.require(:ghost).permit(:username, :password, :age, :image, :motto, :credits)
+    params.require(:ghost).permit(:username, :password, :age, :image, :motto, :credits, images: [])
   end
 
 end

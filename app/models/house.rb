@@ -1,4 +1,5 @@
 class House < ApplicationRecord
+  has_many_attached :images
   has_many :haunts
   has_many :ghosts, through: :haunts
   has_many :house_searches
