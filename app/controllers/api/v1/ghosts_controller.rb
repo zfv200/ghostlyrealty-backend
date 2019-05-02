@@ -44,10 +44,10 @@ class Api::V1::GhostsController < ApplicationController
 
   def create
     @ghost = Ghost.new(ghost_params)
-    @ghost.add_role(:agent) if params[:medium]
+    @ghost.add_role(:agent) if params[:ghost][:medium]
     if @ghost.save
       @token = encode_token(ghost_id: @ghost.id)
-      render json: { ghost: GhostSerializer.new(@ghost), jwt: @token }, status: :created
+      render json: { ghost: GhostSerializer.new(@ghost), jwt: @token, profile_picture: url_for(@ghost.profile_picture) }, status: :created
     else
       render json: { error: 'ya failed' }, status: :not_acceptable
     end
@@ -62,7 +62,7 @@ class Api::V1::GhostsController < ApplicationController
   private
 
   def ghost_params
-    params.require(:ghost).permit(:username, :password, :age, :image, :motto, :credits, images: [])
+    params.require(:ghost).permit(:username, :password, :age, :image, :motto, :credits, :profile_picture)
   end
 
 end
