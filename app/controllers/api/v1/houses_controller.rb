@@ -56,7 +56,7 @@ class Api::V1::HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground, :medium_id, :description, :new_family, :id)
+    params.require(:house).permit(:address, :rooms, :solo_haunt, :image_url, :name, :featured, :burial_ground, :medium_id, :description, :new_family, :id, images:[])
   end
 
 end

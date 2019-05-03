@@ -43,7 +43,6 @@ class Api::V1::GhostsController < ApplicationController
   end
 
   def create
-    byebug
     @ghost = Ghost.new(ghost_params)
     @ghost.add_role(:agent) if params[:ghost][:medium] == "true"
     if @ghost.save
