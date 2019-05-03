@@ -1,5 +1,6 @@
 class Ghost < ApplicationRecord
   has_secure_password
+  has_one_attached :profile_picture
   after_create :add_credits
   validates :username, uniqueness: { case_sensitive: false }
   #can use rolify now to use those methods to assign roles at different points of creation/updating

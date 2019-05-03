@@ -23,6 +23,8 @@ ghost4.add_role :agent
 ghost5 = Ghost.create(username: 'Venkman', age: 35, image: 'https://www.theraffon.net/~spookcentral/journal/venkmanjumpsuit03.jpg', motto: "You’re not gonna lose the house, everybody has three mortgages nowadays.", password: "123", featured: false, credits: 10)
 ghost5.add_role :agent
 
+ghost6 = Ghost.create(username: 'Tangina Barrons', age: 62, image: nil, motto: "I'm the real deal!" password: "123", featured: false, credits: 10)
+ghost5.add_role :agent
 
 house1 = House.create(
   medium: ghost2,

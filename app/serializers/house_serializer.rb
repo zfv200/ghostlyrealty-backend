@@ -1,4 +1,10 @@
 class HouseSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :image_url, :featured, :burial_ground, :description, :new_family, :rooms, :solo_haunt
+  include Rails.application.routes.url_helpers
+
+  attributes :id, :name, :address, :image_url, :featured, :burial_ground, :description, :new_family, :rooms, :solo_haunt, :images
+
+  def images
+    object.images.map do |image| image.service_url end
+  end
 
 end

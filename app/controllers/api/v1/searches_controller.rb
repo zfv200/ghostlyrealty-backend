@@ -1,5 +1,8 @@
 class Api::V1::SearchesController < ApplicationController
   # respond_to :json
+  def serialize(houses)
+    houses.map { |house| HouseSerializer.new(house).as_json }
+  end
 
   def search_site
     query = params[:searchTerm]
@@ -9,9 +12,11 @@ class Api::V1::SearchesController < ApplicationController
     end
     agents = search.search_agents(query)
     houses = search.search_houses(query)
-    results = {:agents=>agents, :houses=>houses}
-    render :json => results.to_json
+    house_results = serialize(houses)
+    # results = {:agents=>agents, :houses=>house_results}
+    render :json => {:agents=>agents, :houses=>house_results}
   end
+
 
   def search_properties
     @search_hash = params
@@ -21,13 +26,15 @@ class Api::V1::SearchesController < ApplicationController
       extant_search = Search.find_by(description: @search_hash[:search][:description], ghost_id: current_ghost.id)
       if extant_search
         extant_search.houses = extant_search.search_properties(extant_search.attributes)
-        return render :json => {:results=>extant_search.houses}
+        house_results = serialize(extant_search.houses)
+        return render :json => {:results=>house_results}
       else
         @search_hash[:search][:ghost_id] = current_ghost.id
         search = Search.create(search_params)
         results = search.search_properties(@search_hash[:search])
         search.houses = results
-        return render :json => {:results=>search.houses, :search=>search}
+        house_results = serialize(search.houses)
+        return render :json => {:results=>house_results, :search=>search}
       end
       #if there's a current_ghost, check for extant_search for them
       #if it exists, update it and return results
@@ -35,7 +42,8 @@ class Api::V1::SearchesController < ApplicationController
     else
       search = Search.new
       results = search.search_properties(@search_hash[:search])
-      render :json => {:results=>results, :search=>search}
+      house_results = serialize(results)
+      render :json => {:results=>house_results, :search=>search}
       #otherwise they don't need to have a search saved, they just get the results
     end
   end
@@ -45,7 +53,8 @@ class Api::V1::SearchesController < ApplicationController
     #because we want to preserve the potential for the data here
     search = Search.find_by(description: params[:description])
     search.houses = search.search_properties(search.attributes)
-    render :json => {:results => search.houses}
+    @houses = search.houses.map { |house| HouseSerializer.new(house).as_json }
+    render :json => {:results => @houses}
   end
 
   private
