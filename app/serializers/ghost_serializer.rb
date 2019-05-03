@@ -16,5 +16,4 @@ class GhostSerializer < ActiveModel::Serializer
     end
   end
 
-
 end
