@@ -13,7 +13,7 @@ class Api::V1::GhostsController < ApplicationController
 
   def show
     @medium = Ghost.find(params[:id])
-    @properties = @medium.properties
+    @properties = @medium.properties.map { |house| HouseSerializer.new(house).as_json }
     render json: { medium: GhostSerializer.new(@medium), properties: @properties }
   end
 
