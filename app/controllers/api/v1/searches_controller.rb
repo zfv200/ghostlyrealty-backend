@@ -8,7 +8,8 @@ class Api::V1::SearchesController < ApplicationController
     query = params[:searchTerm]
     search = Search.new
     if search.check_blank_search(params[:searchTerm])
-      return render :json => {:houses=> House.all}.to_json
+      results = serialize(House.all)
+      return render :json => {:houses=> results}
     end
     agents = search.search_agents(query)
     houses = search.search_houses(query)
@@ -53,7 +54,7 @@ class Api::V1::SearchesController < ApplicationController
     #because we want to preserve the potential for the data here
     search = Search.find_by(description: params[:description])
     search.houses = search.search_properties(search.attributes)
-    @houses = search.houses.map { |house| HouseSerializer.new(house).as_json }
+    @houses = serialize(search.houses)
     render :json => {:results => @houses}
   end
 
