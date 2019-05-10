@@ -32,6 +32,7 @@ class Api::V1::HousesController < ApplicationController
     @house = House.find(params[:id])
     status = feature_charge_status(@house)
     if status == "success"
+      byebug
       @house.update(house_params)
       render json: @house
     else
