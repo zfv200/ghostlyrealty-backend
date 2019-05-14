@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_135937) do
+ActiveRecord::Schema.define(version: 2019_05_14_155022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_05_03_135937) do
     t.bigint "medium_id"
     t.boolean "new_family"
     t.text "description"
+    t.boolean "witch_friendly"
     t.index ["medium_id"], name: "index_houses_on_medium_id"
   end
 
