@@ -10,6 +10,10 @@ class Api::V1::HousesController < ApplicationController
     render json: {house: HouseSerializer.new(@house), medium: medium}
   end
 
+  def spook_score
+    spook = SpookScore.new("https://watson-developer-cloud.github.io/doc-tutorial-downloads/visual-recognition/640px-IBM_VGA_90X8941_on_PS55.jpg")
+    render json: {result: spook.result}
+  end
   # custom
   def featured
     render json: House.featured, serializer: nil

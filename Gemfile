@@ -15,6 +15,7 @@ gem 'rack-cors'
 gem 'rolify'
 gem 'figaro'
 
+gem 'ibm_watson' 
 #s3:
 gem "aws-sdk-s3", require: false
 
