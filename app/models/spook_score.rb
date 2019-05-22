@@ -10,7 +10,8 @@ class SpookScore
       version: "2018-03-19",
       iam_apikey: Rails.application.credentials.ibm_watson[:api_key]
     )
-    classes = visual_recognition.classify(url: url)
+    classifier_ids = ["SpookinessGenerator_1413939983"]
+    classes = visual_recognition.classify(url: url, classifier_ids: classifier_ids)
     @result = classes.result
   end
 

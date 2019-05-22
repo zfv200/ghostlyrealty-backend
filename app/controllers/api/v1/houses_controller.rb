@@ -11,7 +11,8 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def spook_score
-    spook = SpookScore.new("https://watson-developer-cloud.github.io/doc-tutorial-downloads/visual-recognition/640px-IBM_VGA_90X8941_on_PS55.jpg")
+    image_url = House.find(params[:id]).images[0].service_url.split("?response-content")[0]
+    spook = SpookScore.new(image_url)
     render json: {result: spook.result}
   end
   # custom

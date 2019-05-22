@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       post '/register', to: 'ghosts#create'
       get '/profile', to: 'ghosts#profile'
       post '/recent_search', to: 'searches#recent_search'
-      get '/spook_score', to: 'houses#spook_score'
+      post '/spook_score', to: 'houses#spook_score'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
