@@ -29,7 +29,7 @@ class SpookScore
     if classes
       result_hash["images"][0]["classifiers"][0]["classes"][0]["score"]
     else
-      0
+      1
     end
   end
 
