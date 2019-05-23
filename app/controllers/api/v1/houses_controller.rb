@@ -11,9 +11,16 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def spook_score
-    image_url = House.find(params[:id]).images[0].service_url.split("?response-content")[0]
-    spook = SpookScore.new(image_url)
-    render json: {result: spook.result}
+    house = House.find(params[:id])
+    spook = SpookScore.new
+    house.images.each do |image|
+      image_url = image.service_url.split("?response-content")[0]
+      spook.visualize(image_url)
+      sleep(3)
+    end
+    score = spook.total_score
+    house.update(spook_score: score)
+    render json: {result: score}
   end
   # custom
   def featured
