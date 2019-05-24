@@ -10,6 +10,18 @@ class Api::V1::HousesController < ApplicationController
     render json: {house: HouseSerializer.new(@house), medium: medium}
   end
 
+  def spook_score
+    house = House.find(params[:id])
+    spook = SpookScore.new
+    house.images.each do |image|
+      image_url = image.service_url.split("?response-content")[0]
+      spook.visualize(image_url)
+      sleep(3)
+    end
+    score = spook.total_score
+    house.update(spook_score: score)
+    render json: {result: score}
+  end
   # custom
   def featured
     render json: House.featured, serializer: nil
