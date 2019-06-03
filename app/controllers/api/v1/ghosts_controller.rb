@@ -26,16 +26,10 @@ class Api::V1::GhostsController < ApplicationController
     featured_ghost = Ghost.all.find { |ghost| ghost.featured == true }
     new_featured = Ghost.find(params[:id])
     featured_ghost.update(featured: false)
-    current_credits = new_featured.credits
-    new_credits = change_credits(current_credits, -10)
-    new_featured.update(featured: true)
-    new_featured.update(credits: new_credits)
+    new_credits = CreditsMachine.change_credits(new_featured.credits, -10)
+    new_featured.update(featured: true, credits: new_credits)
     @ghost = Ghost.find(params[:id])
     render json: @ghost
-  end
-
-  def change_credits(original, new_amt)
-    original + new_amt
   end
 
   def profile
