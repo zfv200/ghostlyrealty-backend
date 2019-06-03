@@ -18,11 +18,12 @@ class Api::V1::HousesController < ApplicationController
       spook.visualize(image_url)
       sleep(3)
     end
+    house.medium.update(credits: CreditsMachine.change_credits(house.medium.credits, -3))
     score = spook.total_score
     house.update(spook_score: score)
     render json: {result: score}
   end
-  # custom
+
   def featured
     render json: House.featured, serializer: nil
   end
@@ -42,30 +43,17 @@ class Api::V1::HousesController < ApplicationController
 
   def update
     @house = House.find(params[:id])
-    status = feature_charge_status(@house)
-    if status == "success"
-      params[:house][:imagesToDestroy].split(',').each do |index|
-        @house.images[index.to_i].purge
-      end
-      @house.update(house_params)
-      render json: @house
-    else
-      render json: {error: "no more credits!"}
+    params[:house][:imagesToDestroy].split(',').each do |index|
+      @house.images[index.to_i].purge
     end
+    @house.update(house_params)
+    render json: @house
   end
 
-  def feature_charge_status(house)
-    if !!params["featured"] && house.featured == false
-      medium = house.medium
-      if medium.credits == 0
-        "fail"
-      else
-        medium.update(credits: medium.credits - 1)
-        "success"
-      end
-    else
-      "success"
-    end
+  def change_feature_status
+    @house = House.find(params[:id])
+    @house.update(house_params)
+    @house.medium.update(credits: CreditsMachine.change_credits(@house.medium.credits, -1)) if @house.featured
   end
 
   private
